@@ -6,6 +6,7 @@ root = Tk()
 root.title('password generator v 1.0')
 root.resizable(0, 0)
 
+var = IntVar()
 varDigi = IntVar()
 varChLower = IntVar()
 varChUpper = IntVar()
@@ -22,8 +23,12 @@ chChLower = Checkbutton(root, text='Lower-case', variable=varChLower, onvalue=1,
 chChLower.grid(row=2, column=1, padx=10, pady=7)
 chChUpper = Checkbutton(root, text='Upper-case', variable=varChUpper, onvalue=1, offvalue=0)
 chChUpper.grid(row=2, column=2, padx=10, pady=7)
+lblPassLength = Label(root, text='Password length: ')
+lblPassLength.grid(row=3, column=0, padx=10)
+scl01 = Scale(root, variable=var, orient=HORIZONTAL, from_=1, to=20)
+scl01.grid(row=3, column=1, columnspan=2)
 lblError = Label(root, text='')
-lblError.grid(row=3, column=1, pady=7)
+lblError.grid(row=4, column=1, pady=7)
 
 
 def gui_start():

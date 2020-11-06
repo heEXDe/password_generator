@@ -6,9 +6,11 @@ import GUI
 
 def generate_password():
     password = ''
+    GUI.lblError.config(text='')
+    passLength = GUI.var.get()
     if (GUI.varDigi.get() == 1) & (GUI.varChLower.get() == 1) & (GUI.varChUpper.get() == 1):
         strin = string.ascii_letters
-        for i in range(10):
+        for i in range(passLength):
             chornumb = random.choice(['ch', 'digi'])
             if chornumb == 'ch':
                 password = password + random.choice(strin)
@@ -16,7 +18,7 @@ def generate_password():
                 password = password + str(random.randint(0, 10))
     elif (GUI.varDigi.get() == 1) & (GUI.varChLower.get() == 1) & (GUI.varChUpper.get() == 0):
         strin = string.ascii_lowercase
-        for i in range(10):
+        for i in range(passLength):
             chornumb = random.choice(['ch', 'digi'])
             if chornumb == 'ch':
                 password = password + random.choice(strin)
@@ -24,7 +26,7 @@ def generate_password():
                 password = password + str(random.randint(0, 10))
     elif (GUI.varDigi.get() == 1) & (GUI.varChLower.get() == 0) & (GUI.varChUpper.get() == 1):
         strin = string.ascii_uppercase
-        for i in range(10):
+        for i in range(passLength):
             chornumb = random.choice(['ch', 'digi'])
             if chornumb == 'ch':
                 password = password + random.choice(strin)
@@ -32,18 +34,18 @@ def generate_password():
                 password = password + str(random.randint(0, 10))
     elif (GUI.varDigi.get() == 0) & (GUI.varChLower.get() == 1) & (GUI.varChUpper.get() == 1):
         strin = string.ascii_letters
-        for i in range(10):
+        for i in range(passLength):
             password = password + random.choice(strin)
     elif (GUI.varDigi.get() == 0) & (GUI.varChLower.get() == 0) & (GUI.varChUpper.get() == 1):
         strin = string.ascii_uppercase
-        for i in range(10):
+        for i in range(passLength):
             password = password + random.choice(strin)
     elif (GUI.varDigi.get() == 0) & (GUI.varChLower.get() == 1) & (GUI.varChUpper.get() == 0):
         strin = string.ascii_lowercase
-        for i in range(10):
+        for i in range(passLength):
             password = password + random.choice(strin)
     elif (GUI.varDigi.get() == 1) & (GUI.varChLower.get() == 0) & (GUI.varChUpper.get() == 0):
-        for i in range(10):
+        for i in range(passLength):
             password = password + str(random.randint(0, 10))
     else:
         GUI.lblError.config(text='error!')
